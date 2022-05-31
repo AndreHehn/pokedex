@@ -21,7 +21,7 @@ body {
     border-radius: 8px;
     border-style: solid;
     border-width: 4px;
-margin:4px;
+    margin: 4px;
 }
 
 .small-pic {
@@ -41,6 +41,7 @@ margin:4px;
     background-color: rgb(0, 151, 0);
     border-radius: 4px;
 }
+
 .cardgrass {
     border-color: rgb(0, 151, 0);
 }
@@ -50,6 +51,7 @@ margin:4px;
     background-color: rgb(62, 139, 255);
     border-radius: 4px;
 }
+
 .cardwater {
     border-color: rgb(62, 139, 255);
 }
@@ -153,6 +155,7 @@ margin:4px;
 .cardice {
     border-color: rgb(0, 255, 255);
 }
+
 .dragon {
     padding: 6px;
     background-color: rgb(164, 229, 255);
