@@ -2,7 +2,7 @@
 
 
 async function loadPokemonUrls() {
-    let urlPokemonList = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+    let urlPokemonList = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     let response = await fetch(urlPokemonList);
     let responseAsJson = await response.json();
     await getPokemonURL(responseAsJson);
@@ -57,11 +57,16 @@ function renderCard(name, urlArtwork, weight, types, stats, abilityName) {
 
 function renderCardSmall(name, urlArtwork, types) {
     document.getElementById('cards').innerHTML += `
-<div class="small-Card ${types[0]} ${types[1]}" onclick="modal(${name})">
+<div class="small-Card" onclick="modal(${name})">
 <h2>${name}</h2>
 <img class= "smallPic" src ="${urlArtwork}">
-<span>${types[0]} ${types[1]}</span>
+<div id ="type${name}" class=""></div>
 </div>
 `;
+for (let i = 0; i < types.length; i++) {
+   document.getElementById('type'+ name).innerHTML+=`<div class= ${types[i]}>${types[i]}</div>`;  
+ }
 }
+
+
 function renderCardBig(name, urlArtwork, weight, types, stats, abilityName){}
