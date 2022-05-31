@@ -1,0 +1,206 @@
+body {
+    margin: 0;
+    background-color: rgb(39, 39, 39);
+}
+
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.small-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 180px;
+    height: 240px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 4px;
+margin:4px;
+}
+
+.small-pic {
+    width: 120px;
+    height: auto;
+
+}
+
+.types {
+    margin-top: 6px;
+    display: flex;
+    gap: 1rem;
+}
+
+.grass {
+    padding: 6px;
+    background-color: rgb(0, 151, 0);
+    border-radius: 4px;
+}
+.cardgrass {
+    border-color: rgb(0, 151, 0);
+}
+
+.water {
+    padding: 6px;
+    background-color: rgb(62, 139, 255);
+    border-radius: 4px;
+}
+.cardwater {
+    border-color: rgb(62, 139, 255);
+}
+
+.normal {
+    padding: 6px;
+    background-color: rgb(255, 231, 152);
+    border-radius: 4px;
+}
+
+.cardnormal {
+    border-color: rgb(255, 231, 152);
+}
+
+.electric {
+    padding: 6px;
+    background-color: rgb(255, 255, 0);
+    border-radius: 4px;
+}
+
+.cardelectric {
+    border-color: rgb(255, 255, 0);
+}
+
+.electric {
+    padding: 6px;
+    background-color: rgb(255, 255, 0);
+    border-radius: 4px;
+}
+
+.cardelectric {
+    border-color: rgb(255, 255, 0);
+}
+
+.fire {
+    padding: 6px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 4px;
+}
+
+.cardfire {
+    border-color: rgb(255, 0, 0);
+}
+
+.bug {
+    padding: 6px;
+    background-color: rgb(68, 233, 255);
+    border-radius: 4px;
+}
+
+.cardbug {
+    border-color: rgb(68, 233, 255);
+}
+
+.poison {
+    padding: 6px;
+    background-color: rgb(223, 143, 255);
+    border-radius: 4px;
+}
+
+.cardpoison {
+    border-color: rgb(223, 143, 255);
+}
+
+.fighting {
+    padding: 6px;
+    background-color: rgb(255, 167, 167);
+    border-radius: 4px;
+}
+
+.cardfighting {
+    border-color: rgb(255, 167, 167);
+}
+
+.psychic {
+    padding: 6px;
+    background-color: rgb(255, 88, 227);
+    border-radius: 4px;
+}
+
+.cardpsychic {
+    border-color: rgb(255, 88, 227);
+}
+
+.rock {
+    padding: 6px;
+    background-color: rgb(226, 225, 215);
+    border-radius: 4px;
+}
+
+.cardrock {
+    border-color: rgb(226, 225, 215);
+}
+
+.ice {
+    padding: 6px;
+    background-color: rgb(0, 255, 255);
+    border-radius: 4px;
+}
+
+.cardice {
+    border-color: rgb(0, 255, 255);
+}
+.dragon {
+    padding: 6px;
+    background-color: rgb(164, 229, 255);
+    border-radius: 4px;
+}
+
+.carddragon {
+    border-color: rgb(164, 229, 255);
+}
+
+.ground {
+    padding: 6px;
+    background-color: rgb(130, 173, 95);
+    border-radius: 4px;
+}
+
+.cardground {
+    border-color: rgb(130, 173, 95);
+}
+
+.ghost {
+    padding: 6px;
+    background-color: rgb(179, 255, 249);
+    border-radius: 4px;
+}
+
+.cardghost {
+    border-color: rgb(179, 255, 249);
+}
+
+.fairy {
+    padding: 6px;
+    background-color: rgb(255, 110, 142);
+    border-radius: 4px;
+}
+
+.cardfairy {
+    border-color: rgb(255, 110, 142);
+}
+
+.flying {
+    padding: 6px;
+    background-color: rgb(194, 255, 252);
+    border-radius: 4px;
+}
+
+.steel {
+    padding: 6px;
+    background-color: rgb(197, 218, 224);
+    border-radius: 4px;
+}
