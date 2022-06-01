@@ -15,16 +15,13 @@ async function renderCardSmall() {
     for (let i = 0; i < pokemonData.length; i++) {
         let pokemonNumber = i + 1;
         htmlForRenderCardSmall(i, pokemonNumber);
-        for (let j = 0; j < types[i].length; j++) {
-            document.getElementById('type' + names[i]).innerHTML += `<div class= "type ${types[i][j]}">${types[i][j]}</div>`;
-        }
         if (favorites.indexOf[i]) {
             document.getElementById('like' + i).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
         }
         else {
             document.getElementById('like' + i).innerHTML = ` <img class="like" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
-        } 
-    }  
+        }
+    }
 }
 
 
@@ -91,10 +88,12 @@ function htmlForRenderCardSmall(i, pokemonNumber) {
     document.getElementById('cards').innerHTML += `
     <div class="small-card card${types[i][0]}">
     <div class="headline"><div class="pokemon-number" onclick="modal(${i})">#${pokemonNumber}</div><div id="like${i}"></div></div>
-    <h2  onclick="modal(${i})" >${names[i]}</h2>
-    <img  onclick="modal(${i})" class= "small-pic" src ="${urlsArtwork[i]}">
-    <div  onclick="modal(${i})" id ="type${names[i]}" class="types"></div></div>`;
-
+    <h2 onclick="modal(${i})" >${names[i]}</h2>
+    <img onclick="modal(${i})" class= "small-pic" src ="${urlsArtwork[i]}">
+    <div onclick="modal(${i})" id ="type${names[i]}" class="types"></div></div>`;
+    for (let j = 0; j < types[i].length; j++) {
+        document.getElementById('type' + names[i]).innerHTML += `<div class= "type ${types[i][j]}">${types[i][j]}</div>`;
+    }
 }
 
 
@@ -110,13 +109,20 @@ function removeFromFavorites(i) {
     document.getElementById('like' + i).innerHTML = `<img class="like"  src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
 }
 
-function modal(i) { }
+
+function modal() {
+
+ }
 
 
-function showList() { }
+function showList() {
 
-function showFavorites() { }
+ }
 
+
+function showFavorites() { 
+
+}
 
 
 function renderCardBig() {
