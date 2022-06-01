@@ -38,10 +38,16 @@ header {
 
 }
 
-.headline_pic{
+.list_pic{
     padding-left:4px;
-    width: 96px;
-    height:96px;
+    width: 92px;
+    height:92px;
+}
+
+.favorite_pic{
+    padding-left:4px;
+    width: 84px;
+    height:84px;
 }
 
 .cards {
@@ -278,15 +284,20 @@ header {
 
     header {
         gap: 30px;
+        height: 60px;
     }
     .headline_title{
         font-size: 38px;
     
     }
     
-    .headline_pic{
-        padding-left:4px;
+    .favorite_pic{
         width: 48px;
         height:48px;
+    }
+
+    .list_pic{
+        width: 52px;
+        height:52px;
     }
 }
