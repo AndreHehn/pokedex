@@ -5,6 +5,13 @@ body {
     flex-direction: column;
     align-items: center;
 }
+header{
+display: flex;
+width: 100%;
+    justify-content: center;
+    background-color: rgb(170, 170, 170)!important;
+    gap:520px;
+}
 
 .cards {margin-left: 4px;
     margin-right: 4px;
@@ -28,7 +35,23 @@ body {
     margin: 4px;
 }
 
-.small-card h2{margin-top:-4px;}
+.headline{
+display:flex;
+flex-direction: row;
+margin-top:-12px;
+justify-content: space-between;
+width: auto;
+gap:120px;
+}
+
+.likestar{
+height:20px;
+width:20px;
+    
+}
+
+
+.small-card h2{margin-top:-6px;}
 
 .small-pic {
     width: 120px;
@@ -180,4 +203,29 @@ body {
 
 .steel {
     background-color: rgb(197, 218, 224);
+}
+
+@media(max-width:1224px){
+
+    header{gap:420px;}
+}
+@media(max-width:1224px){
+
+    header{gap:420px;}
+}
+@media(max-width:1024px){
+
+    header{gap:320px;}
+}
+@media(max-width:824px){
+
+    header{gap:220px;}
+}
+@media(max-width:624px){
+
+    header{gap:120px;}
+}
+@media(max-width:424px){
+
+    header{gap:20px;}
 }

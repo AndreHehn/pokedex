@@ -1,5 +1,4 @@
-
-
+let favorites = [];
 
 async function loadPokemonUrls() {
     let urlPokemonList = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -14,12 +13,12 @@ async function getPokemonURL(responseAsJson) {
         let urlPokemon = await responseAsJson['results'][i]['url'];
         let responsePokemon = await fetch(urlPokemon);
         let responsePokemonAsJson = await responsePokemon.json();
-        PrepForRenderCard(responsePokemonAsJson);
+        PrepForRenderCard(responsePokemonAsJson, i);
     }
 }
 
 
-function PrepForRenderCard(responsePokemonAsJson) {
+function PrepForRenderCard(responsePokemonAsJson, i) {
     let name = responsePokemonAsJson['name'];
     let urlArtwork = responsePokemonAsJson['sprites']['other']['official-artwork']['front_default'];
     let weight = responsePokemonAsJson['weight'];
@@ -30,7 +29,7 @@ function PrepForRenderCard(responsePokemonAsJson) {
     };
     let abilityName = [];
     fillVar(responsePokemonAsJson, types, abilityName, stats);
-    renderCard(name, urlArtwork, weight, types, stats, abilityName);
+    renderCard(name, urlArtwork, weight, types, stats, abilityName, i);
 }
 
 
@@ -49,20 +48,20 @@ function fillVar(responsePokemonAsJson, types, abilityName, stats) {
 }
 
 
-function renderCard(name, urlArtwork, weight, types, stats, abilityName) {
-    renderCardSmall(name, urlArtwork, types);
+function renderCard(name, urlArtwork, weight, types, stats, abilityName, i) {
+    renderCardSmall(name, urlArtwork, types, i);
     renderCardBig(name, urlArtwork, weight, types, stats, abilityName);
 }
 
 
-function renderCardSmall(name, urlArtwork, types) {
+function renderCardSmall(name, urlArtwork, types, i) {
+    let pokemonNumber = i + 1;
     document.getElementById('cards').innerHTML += `
-    <div class="small-card card${types[0]}" onclick="modal(${name})">
+    <div class="small-card card${types[0]}" onclick="modal(${i})">
+    <div class="headline"><div>#${pokemonNumber}</div><div><img class="likestar" id="likestar${i}" src="./img/star_outline.png" onclick="addToFavorites(${i})"></div></div>
     <h2>${name}</h2>
     <img class= "small-pic" src ="${urlArtwork}">
-    <div id ="type${name}" class="types"></div>
-    </div>
-    `;
+    <div id ="type${name}" class="types"></div></div>`;
     for (let i = 0; i < types.length; i++) {
         document.getElementById('type' + name).innerHTML += `<div class= "type ${types[i]}">${types[i]}</div>`;
     }
@@ -70,3 +69,34 @@ function renderCardSmall(name, urlArtwork, types) {
 
 
 function renderCardBig(name, urlArtwork, weight, types, stats, abilityName) { }
+
+
+function modal(i) { }
+
+
+function addToFavorites(i) {
+    let isAlreadyFavorite = false;
+    for (let j = 0; j < favorites.length; j++) {
+        if (favorites[j] == i) {
+            contentForAddToFavoritesIfInLoop(i,j);
+            isAlreadyFavorite = true;
+        }
+        return isAlreadyFavorite;
+    }
+    if (!isAlreadyFavorite) {
+        contentForAddToFavoritesIf(i);
+        isAlreadyFavorite = false;
+        return isAlreadyFavorite;
+    }
+}
+
+function contentForAddToFavoritesIfInLoop(i, j) {
+    favorites.splice(j, 1);
+    document.getElementById('likestar' + i).src = './img/star_outline.png';
+}
+
+
+function contentForAddToFavoritesIf(i) {
+    favorites.push(i);
+    document.getElementById('likestar' + i).src = './img/star.png';
+}
