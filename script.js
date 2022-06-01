@@ -57,12 +57,12 @@ function renderCard(name, urlArtwork, weight, types, stats, abilityName) {
 
 function renderCardSmall(name, urlArtwork, types) {
     document.getElementById('cards').innerHTML += `
-<div class="small-card card${types[0]}" onclick="modal(${name})">
-<h2>${name}</h2>
-<img class= "small-pic" src ="${urlArtwork}">
-<div id ="type${name}" class="types"></div>
-</div>
-`;
+    <div class="small-card card${types[0]}" onclick="modal(${name})">
+    <h2>${name}</h2>
+    <img class= "small-pic" src ="${urlArtwork}">
+    <div id ="type${name}" class="types"></div>
+    </div>
+    `;
     for (let i = 0; i < types.length; i++) {
         document.getElementById('type' + name).innerHTML += `<div class= "type ${types[i]}">${types[i]}</div>`;
     }
