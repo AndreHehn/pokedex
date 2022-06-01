@@ -57,11 +57,11 @@ function renderCard(name, urlArtwork, weight, types, stats, abilityName, i) {
 function renderCardSmall(name, urlArtwork, types, i) {
     let pokemonNumber = i + 1;
     document.getElementById('cards').innerHTML += `
-    <div class="small-card card${types[0]}" onclick="modal(${i})">
-    <div class="headline"><div>#${pokemonNumber}</div><div id="likestar${i}"><img class="likestar"  src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></div></div>
-    <h2>${name}</h2>
-    <img class= "small-pic" src ="${urlArtwork}">
-    <div id ="type${name}" class="types"></div></div>`;
+    <div class="small-card card${types[0]}">
+    <div class="headline"><div class="pokemon-number" onclick="modal(${i})">#${pokemonNumber}</div><div id="likestar${i}"><img class="like"  src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></div></div>
+    <h2  onclick="modal(${i})" >${name}</h2>
+    <img  onclick="modal(${i})" class= "small-pic" src ="${urlArtwork}">
+    <div  onclick="modal(${i})" id ="type${name}" class="types"></div></div>`;
     for (let i = 0; i < types.length; i++) {
         document.getElementById('type' + name).innerHTML += `<div class= "type ${types[i]}">${types[i]}</div>`;
     }
@@ -71,7 +71,7 @@ function renderCardSmall(name, urlArtwork, types, i) {
 function renderCardBig(name, urlArtwork, weight, types, stats, abilityName) { }
 
 
-function modal(i) { }
+function modal(i) {console.log('test') }
 
 
 function addToFavorites(i) {

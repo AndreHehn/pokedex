@@ -3,15 +3,20 @@
     font-family: 'Grape Nuts';
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/grape-nuts-v2-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('./fonts/grape-nuts-v2-latin-regular.eot');
+    /* IE9 Compat Modes */
     src: local(''),
-         url('./fonts/grape-nuts-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('./fonts/grape-nuts-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('./fonts/grape-nuts-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('./fonts/grape-nuts-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('./fonts/grape-nuts-v2-latin-regular.svg#GrapeNuts') format('svg'); /* Legacy iOS */
-  }
-  
+        url('./fonts/grape-nuts-v2-latin-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('./fonts/grape-nuts-v2-latin-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('./fonts/grape-nuts-v2-latin-regular.woff') format('woff'),
+        /* Modern Browsers */
+        url('./fonts/grape-nuts-v2-latin-regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('./fonts/grape-nuts-v2-latin-regular.svg#GrapeNuts') format('svg');
+    /* Legacy iOS */
+}
 
 body {
     font-family: 'Grape Nuts';
@@ -31,23 +36,29 @@ header {
     background-color: rgb(170, 170, 170) !important;
     gap: 700px;
     align-items: center;
-    height:92px;
+    height: 92px;
 }
-.headline_title{
+
+.headline_title {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
     font-size: 48px;
 
 }
 
-.list_pic{
-    padding-left:4px;
+.list_pic {
+    cursor: pointer;
+    padding-left: 4px;
     width: 92px;
-    height:92px;
+    height: 92px;
 }
 
-.favorite_pic{
-    padding-left:4px;
+.favorite_pic {
+    cursor: pointer;
+    padding-left: 4px;
     width: 84px;
-    height:84px;
+    height: 84px;
 }
 
 .cards {
@@ -85,25 +96,32 @@ header {
     font-size: 30px;
 }
 
-.likestar {
+.pokemon-number {
+    cursor: pointer;
+}
+
+.like {
+    cursor: pointer;
     height: 30px;
     width: 28px;
 }
 
-
 .small-card h2 {
+    cursor: pointer;
     margin-top: -2px;
     margin-bottom: -2px;
     font-size: 40px;
 }
 
 .small-pic {
+    cursor: pointer;
     width: 200px;
     height: auto;
 
 }
 
 .types {
+    cursor: pointer;
     margin-top: 16px;
     display: flex;
     gap: 3rem;
@@ -252,8 +270,6 @@ header {
     background-color: rgb(197, 218, 224);
 }
 
-
-
 @media(max-width:1764px) {
 
     header {
@@ -288,18 +304,18 @@ header {
         gap: 30px;
         height: 60px;
     }
-    .headline_title{
+
+    .headline_title {
         font-size: 38px;
-    
-    }
-    
-    .favorite_pic{
-        width: 48px;
-        height:48px;
     }
 
-    .list_pic{
+    .favorite_pic {
+        width: 48px;
+        height: 48px;
+    }
+
+    .list_pic {
         width: 52px;
-        height:52px;
+        height: 52px;
     }
 }
