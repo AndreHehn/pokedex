@@ -1,5 +1,6 @@
 let favorites = [];
 
+//has to be refactored 
 async function loadPokemonUrls() {
     let urlPokemonList = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     let response = await fetch(urlPokemonList);
@@ -54,33 +55,55 @@ function renderCard(name, urlArtwork, weight, types, stats, abilityName, i) {
 }
 
 
+function renderCardBig(name, urlArtwork, weight, types, stats, abilityName) {
+
+}
+
+
 function renderCardSmall(name, urlArtwork, types, i) {
     let pokemonNumber = i + 1;
-    document.getElementById('cards').innerHTML += `
-    <div class="small-card card${types[0]}">
-    <div class="headline"><div class="pokemon-number" onclick="modal(${i})">#${pokemonNumber}</div><div id="likestar${i}"><img class="like"  src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></div></div>
-    <h2  onclick="modal(${i})" >${name}</h2>
-    <img  onclick="modal(${i})" class= "small-pic" src ="${urlArtwork}">
-    <div  onclick="modal(${i})" id ="type${name}" class="types"></div></div>`;
+
+    htmlForRenderCardSmall(i, name, urlArtwork, types, pokemonNumber);
     for (let i = 0; i < types.length; i++) {
         document.getElementById('type' + name).innerHTML += `<div class= "type ${types[i]}">${types[i]}</div>`;
+    }
+    if (favorites.indexOf[i]) {
+        document.getElementById('likestar' + i).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
+    }
+    else {
+        document.getElementById('likestar' + i).innerHTML = ` <img class="like" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
     }
 }
 
 
-function renderCardBig(name, urlArtwork, weight, types, stats, abilityName) { }
+function htmlForRenderCardSmall(i, name, urlArtwork, types, pokemonNumber) {
+    document.getElementById('cards').innerHTML += `
+    <div class="small-card card${types[0]}">
+    <div class="headline"><div class="pokemon-number" onclick="modal(${i})">#${pokemonNumber}</div><div id="likestar${i}"></div></div>
+    <h2  onclick="modal(${i})" >${name}</h2>
+    <img  onclick="modal(${i})" class= "small-pic" src ="${urlArtwork}">
+    <div  onclick="modal(${i})" id ="type${name}" class="types"></div></div>`;
 
-
-function modal(i) {console.log('test') }
+}
 
 
 function addToFavorites(i) {
     favorites.push(i);
-    document.getElementById('likestar' + i).innerHTML=`<img class="likestar"  src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
+    document.getElementById('likestar' + i).innerHTML = `<img class="like"  src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
 }
 
-function removeFromFavorites(i){
- let position = favorites.indexOf(i);
- favorites.splice(position,1);
-    document.getElementById('likestar' + i).innerHTML=`<img class="likestar"  src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
+
+function removeFromFavorites(i) {
+    let position = favorites.indexOf(i);
+    favorites.splice(position, 1);
+    document.getElementById('likestar' + i).innerHTML = `<img class="like"  src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
 }
+
+function modal(i) { }
+
+
+function showList() { }
+
+function showFavorites() { }
+
+
