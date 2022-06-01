@@ -58,7 +58,7 @@ function renderCardSmall(name, urlArtwork, types, i) {
     let pokemonNumber = i + 1;
     document.getElementById('cards').innerHTML += `
     <div class="small-card card${types[0]}" onclick="modal(${i})">
-    <div class="headline"><div>#${pokemonNumber}</div><div><img class="likestar" id="likestar${i}" src="./img/star_outline.png" onclick="addToFavorites(${i})"></div></div>
+    <div class="headline"><div>#${pokemonNumber}</div><div id="likestar${i}"><img class="likestar"  src="./img/star_outline.png" onclick="addToFavorites(${i})"></div></div>
     <h2>${name}</h2>
     <img class= "small-pic" src ="${urlArtwork}">
     <div id ="type${name}" class="types"></div></div>`;
@@ -75,28 +75,12 @@ function modal(i) { }
 
 
 function addToFavorites(i) {
-    let isAlreadyFavorite = false;
-    for (let j = 0; j < favorites.length; j++) {
-        if (favorites[j] == i) {
-            contentForAddToFavoritesIfInLoop(i,j);
-            isAlreadyFavorite = true;
-        }
-        return isAlreadyFavorite;
-    }
-    if (!isAlreadyFavorite) {
-        contentForAddToFavoritesIf(i);
-        isAlreadyFavorite = false;
-        return isAlreadyFavorite;
-    }
-}
-
-function contentForAddToFavoritesIfInLoop(i, j) {
-    favorites.splice(j, 1);
-    document.getElementById('likestar' + i).src = './img/star_outline.png';
-}
-
-
-function contentForAddToFavoritesIf(i) {
     favorites.push(i);
-    document.getElementById('likestar' + i).src = './img/star.png';
+    document.getElementById('likestar' + i).innerHTML=`<img class="likestar"  src="./img/star.png" onclick="removeFromFavorites(${i})"></img>`;
+}
+
+function removeFromFavorites(i){
+ let position = favorites.indexOf(i);
+ favorites.splice(position,1);
+    document.getElementById('likestar' + i).innerHTML=`<img class="likestar"  src="./img/star_outline.png" onclick="addToFavorites(${i})"></img>`;
 }
