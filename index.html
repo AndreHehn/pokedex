@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link href="./img/1.png" rel="icon" type="image/png">
+    <link href="./img/pokeball.png" rel="icon" type="image/png">
     <script src="script.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body onload="loadPokemonUrls()">
     <header>
-        <div class="list-button" onclick="showList()">List</div>
-        <div>Pokedex</div>
-        <div onclick="showFavorites()">favorites</div>
+        <img class="headline_pic" onclick="showList()" src="./img/list.png">
+        <h1 class="headline_title">Pokedex</h1>
+        <img onclick="showFavorites()" class="headline_pic" src="./img/pokeball.png">
     </header>
 <main>
     <div class="cards" id="cards"></div>

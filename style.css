@@ -1,24 +1,56 @@
+/* grape-nuts-regular - latin */
+@font-face {
+    font-family: 'Grape Nuts';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/grape-nuts-v2-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('./fonts/grape-nuts-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./fonts/grape-nuts-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./fonts/grape-nuts-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('./fonts/grape-nuts-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./fonts/grape-nuts-v2-latin-regular.svg#GrapeNuts') format('svg'); /* Legacy iOS */
+  }
+  
+
 body {
+    font-family: 'Grape Nuts';
     margin: 0;
     background-color: rgb(39, 39, 39);
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
-header{
-display: flex;
-width: 100%;
+
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    width: 100%;
     justify-content: center;
-    background-color: rgb(170, 170, 170)!important;
-    gap:520px;
+    background-color: rgb(170, 170, 170) !important;
+    gap: 700px;
+    align-items: center;
+    height:92px;
+}
+.headline_title{
+    font-size: 48px;
+
 }
 
-.cards {margin-left: 4px;
+.headline_pic{
+    padding-left:4px;
+    width: 96px;
+    height:96px;
+}
+
+.cards {
+    margin-left: 4px;
     margin-right: 4px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1240px;
+
 }
 
 .small-card {
@@ -27,34 +59,38 @@ width: 100%;
     align-items: center;
     justify-content: center;
     background-color: white;
-    width: 180px;
-    height: 260px;
+    width: 270px;
+    height: 390px;
     border-radius: 8px;
     border-style: solid;
     border-width: 6px;
     margin: 4px;
 }
 
-.headline{
-display:flex;
-flex-direction: row;
-margin-top:-12px;
-justify-content: space-between;
-width: auto;
-gap:120px;
+.headline {
+    display: flex;
+    flex-direction: row;
+    margin-top: -24px;
+    justify-content: space-between;
+    width: auto;
+    gap: 180px;
+    font-size: 30px;
 }
 
-.likestar{
-height:20px;
-width:20px;
-    
+.likestar {
+    height: 30px;
+    width: 28px;
 }
 
 
-.small-card h2{margin-top:-6px;}
+.small-card h2 {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    font-size: 40px;
+}
 
 .small-pic {
-    width: 120px;
+    width: 200px;
     height: auto;
 
 }
@@ -62,11 +98,13 @@ width:20px;
 .types {
     margin-top: 16px;
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
 }
-.type{
+
+.type {
     padding: 6px;
     border-radius: 4px;
+    font-size: 22px;
 }
 
 .grass {
@@ -190,7 +228,8 @@ width:20px;
 }
 
 .fairy {
-    background-color: rgb(255, 110, 142);;
+    background-color: rgb(255, 110, 142);
+    ;
 }
 
 .cardfairy {
@@ -205,27 +244,49 @@ width:20px;
     background-color: rgb(197, 218, 224);
 }
 
-@media(max-width:1224px){
 
-    header{gap:420px;}
+
+@media(max-width:1764px) {
+
+    header {
+        gap: 560px;
+    }
 }
-@media(max-width:1224px){
 
-    header{gap:420px;}
+@media(max-width:1474px) {
+
+    header {
+        gap: 420px;
+    }
 }
-@media(max-width:1024px){
 
-    header{gap:320px;}
+@media(max-width:1184px) {
+
+    header {
+        gap: 270px;
+    }
 }
-@media(max-width:824px){
 
-    header{gap:220px;}
+@media(max-width:894px) {
+
+    header {
+        gap: 120px;
+    }
 }
-@media(max-width:624px){
 
-    header{gap:120px;}
-}
-@media(max-width:424px){
+@media(max-width:604px) {
 
-    header{gap:20px;}
+    header {
+        gap: 30px;
+    }
+    .headline_title{
+        font-size: 38px;
+    
+    }
+    
+    .headline_pic{
+        padding-left:4px;
+        width: 48px;
+        height:48px;
+    }
 }
