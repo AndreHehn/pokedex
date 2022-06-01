@@ -9,19 +9,9 @@ let types = [];
 let stats = [];
 let abilityNames = [];
 
-
-async function renderCardSmall() {
+async function init() {
     await fillingArrays();
-    for (let i = 0; i < pokemonData.length; i++) {
-        let pokemonNumber = i + 1;
-        htmlForRenderCardSmall(i, pokemonNumber);
-        if (favorites.indexOf[i]) {
-            document.getElementById('like' + i).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
-        }
-        else {
-            document.getElementById('like' + i).innerHTML = ` <img class="like" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
-        }
-    }
+    renderCardSmall();
 }
 
 
@@ -84,6 +74,20 @@ function fillVar(singlePokemonData, singleTypes, abilityName, singleStats) {
 }
 
 
+function renderCardSmall() {
+    for (let i = 0; i < pokemonData.length; i++) {
+        let pokemonNumber = i + 1;
+        htmlForRenderCardSmall(i, pokemonNumber);
+        document.getElementById('like' + i).innerHTML = ` <img class="like" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
+        for (let j = 0; j < favorites.length; j++) {
+            if (j == i) {
+                document.getElementById('like' + j).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavorites(${j})"></img>`;
+            }
+        }
+    }
+}
+
+
 function htmlForRenderCardSmall(i, pokemonNumber) {
     document.getElementById('cards').innerHTML += `
     <div class="small-card card${types[i][0]}">
@@ -112,15 +116,15 @@ function removeFromFavorites(i) {
 
 function modal() {
 
- }
+}
 
 
 function showList() {
 
- }
+}
 
 
-function showFavorites() { 
+function showFavorites() {
 
 }
 
