@@ -18,7 +18,9 @@
     /* Legacy iOS */
 }
 
-.d-none{display:none;}
+.d-none {
+    display: none;
+}
 
 body {
     font-family: 'Grape Nuts';
@@ -69,7 +71,6 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .small-card {
@@ -108,22 +109,28 @@ header {
     width: 28px;
 }
 
-.small-card h2 {
+.small-card-wrapper {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.small-card h2 {
+
     margin-top: -2px;
     margin-bottom: -2px;
     font-size: 40px;
 }
 
 .small-pic {
-    cursor: pointer;
     width: 200px;
     height: auto;
 
 }
 
 .types {
-    cursor: pointer;
     margin-top: 16px;
     display: flex;
     gap: 3rem;
@@ -176,11 +183,11 @@ header {
 }
 
 .fire {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(255, 80, 49);
 }
 
 .cardfire {
-    border-color: rgb(255, 0, 0);
+    border-color: rgb(255, 80, 49);
 }
 
 .bug {
@@ -271,6 +278,26 @@ header {
 .steel {
     background-color: rgb(197, 218, 224);
 }
+
+.div4button {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+}
+
+.next20 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px 12px;
+    font-size: 32px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
 
 @media(max-width:1764px) {
 

@@ -85,7 +85,7 @@ function renderCardSmall() {
 
 
 function loadNext() {
-    document.getElementById('loadnext' + min).classList.add('d-none');
+    document.getElementById('next20div').innerHTML='';
     renderCardSmall();
 }
 
@@ -101,7 +101,7 @@ function forLoopForRenderCardSmall() {
             }
         }
         if (i == max - 1 && max !== pokemonData.length) {
-            document.getElementById('cards').innerHTML += `
+            document.getElementById('next20div').innerHTML += `
     <div class="next20" id ="loadnext${max}" onclick="loadNext()"> next 20 </div>`;
         }
     }
@@ -112,9 +112,10 @@ function htmlForRenderCardSmall(i, pokemonNumber) {
     document.getElementById('cards').innerHTML += `
     <div class="small-card card${types[i][0]}">
     <div class="headline"><div class="pokemon-number" onclick="modal(${i})">#${pokemonNumber}</div><div id="like${i}"></div></div>
-    <h2 onclick="modal(${i})" >${names[i]}</h2>
-    <img onclick="modal(${i})" class= "small-pic" src ="${urlsArtwork[i]}">
-    <div onclick="modal(${i})" id ="type${names[i]}" class="types"></div></div>`;
+    <div class="small-card-wrapper" onclick="modal(${i})">
+    <h2>${names[i]}</h2>
+    <img class= "small-pic" src ="${urlsArtwork[i]}">
+    <div id ="type${names[i]}" class="types"></div></div></div>`;
     for (let j = 0; j < types[i].length; j++) {
         document.getElementById('type' + names[i]).innerHTML += `<div class= "type ${types[i][j]}">${types[i][j]}</div>`;
     }
@@ -152,3 +153,6 @@ function showFavorites() {
 function renderCardBig() {
 
 }
+
+
+// maybe save the favorites to local storage
