@@ -9,7 +9,7 @@ let types = [];
 let stats = [];
 let abilityNames = [];
 let min = 0;
-let max = 20;
+let max = 25;
 
 async function init() {
     await fillingArrays();
@@ -81,13 +81,13 @@ function fillVar(singlePokemonData, singleTypes, abilityName, singleStats) {
 function renderCardSmall() {
     if (max > pokemonData.length) { max = pokemonData.length; };
     forLoopForRenderCardSmall();
-    min += 20;
-    max += 20;
+    min += 25;
+    max += 25;
     document.getElementById('loading').classList.add('d-none');
 }
 
 
-function renderList() {//Suchfunktion noch integrieren   Pokeball hinzufügen und mit Favoriten verknüpfen
+function renderList() {//Suchfunktion noch integrieren   
     document.getElementById("listPokemon").innerHTML ='';
     for (let i = 0; i < names.length; i++) {
         const name = names[i];
@@ -116,7 +116,7 @@ function forLoopForRenderCardSmall() {
         for (let j = 0; j < favorites.length; j++) {
             if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`; }
         }
-        if (i == max - 1 && max !== pokemonData.length) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> next 20 </div>`; }
+        if (i == max - 1 && max !== pokemonData.length) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> load more</div>`; }
     }
 }
 
@@ -211,4 +211,4 @@ window.onclick = function (event) {
     }
 }
 
-// maybe save the favorites to local storage
+
