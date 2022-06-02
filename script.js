@@ -87,10 +87,17 @@ function renderCardSmall() {
 }
 
 
-function renderList() {//Suchfunktion noch integrieren   Pokeball hinzufügen und mit Favoriten verknüpfen
+function renderList() {//Suchfunktion noch integrieren  
+    document.getElementById("listPokemon").innerHTML ='';
     for (let i = 0; i < names.length; i++) {
         const name = names[i];
-        document.getElementById("listPokemon").innerHTML += `<div class="list-item" onclick="modal(${i})">${name}</div>`;
+        document.getElementById("listPokemon").innerHTML += `<div class="list-item" id="listItem${i}" onclick="modal(${i})">${name}</div>`;
+        for (let j = 0; j < favorites.length; j++) {
+            const favorite = favorites[j];
+            if( favorite == i){ 
+                document.getElementById("listItem"+i).innerHTML = ` ${name}<img class="list-pic" src="./img/pokeball.png">`; 
+            }
+        }
     }
 }
 
@@ -131,6 +138,7 @@ function htmlForRenderCardSmall(i, pokemonNumber) {
 function addToFavorites(i) {
     favorites.push(i);
     document.getElementById('like' + i).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
+    renderList();
 }
 
 
@@ -138,6 +146,7 @@ function removeFromFavorites(i) {
     let position = favorites.indexOf(i);
     favorites.splice(position, 1);
     document.getElementById('like' + i).innerHTML = `<img class="like"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
+    renderList();
 }
 
 
@@ -202,4 +211,3 @@ window.onclick = function (event) {
     }
 }
 
-// maybe save the favorites to local storage
