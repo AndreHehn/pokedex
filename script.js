@@ -158,6 +158,8 @@ function showList() {
 function closeList() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById('listpic').setAttribute('onclick', 'showList()');
+    document.getElementById('input').value =``;
+    renderList();
 }
 
 
@@ -179,6 +181,7 @@ function renderCardBig() {
 function showFavorites() {
     document.getElementById('cards').innerHTML = '';
     document.getElementById('next20div').innerHTML = '';
+    document.getElementById('headline').innerHTML = 'catched pokemons';
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'closeFavorites()');
     document.getElementById('pokemonFavorite').src = "./img/pokeball_open.png";
     min = 0;
@@ -197,6 +200,7 @@ function removeFromFavoritesWhileShown(element) {
     showFavorites();
 }
 function closeFavorites() {
+    document.getElementById('headline').innerHTML = 'pokedex';
     document.getElementById('cards').innerHTML = '';
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'showFavorites()');
     document.getElementById('pokemonFavorite').src = "./img/pokeball.png";

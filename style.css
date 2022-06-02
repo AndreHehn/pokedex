@@ -36,9 +36,8 @@
     margin-top: 16px;
     display: flex;
     justify-content: center;
-    height: 80vh;
+    max-height: 80vh;
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
     overflow-y: scroll;
 }
@@ -46,7 +45,6 @@
 .list-pokemon::-webkit-scrollbar {
     display: none;
 }
-
 
 .list-item {
     width: 100%;
@@ -87,9 +85,6 @@ tr{height:34px;}
     font-size: 20px;
 }
 
-
-
-
 .d-none {
     display: none !important;
 }
@@ -124,7 +119,7 @@ header {
 }
 
 main {
-    max-width: 1764px;
+    max-width: 1474px;
 }
 
 .list_pic {
@@ -411,6 +406,14 @@ main {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+footer{position: sticky;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    min-height: 56px;
+background-color:rgb(170, 170, 170)!important ;}
 
 @keyframes rotation {
     from {
