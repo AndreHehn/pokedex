@@ -13,7 +13,7 @@ let max = 20;
 
 async function init() {
     await fillingArrays();
-        // Open Explanation Modal
+    // Open Explanation Modal
     renderCardSmall();
     renderList();
 }
@@ -87,11 +87,11 @@ function renderCardSmall() {
 }
 
 
-function renderList(){//Suchfunktion noch integrieren   Pokeball hinzufügen und mit Favoriten verknüpfen
-for (let i = 0; i < names.length; i++) {
-    const name = names[i];
-    document.getElementById("listPokemon").innerHTML+=`<div class="list-item" onclick="modal(${i})">${name}</div>`;
-} 
+function renderList() {//Suchfunktion noch integrieren   Pokeball hinzufügen und mit Favoriten verknüpfen
+    for (let i = 0; i < names.length; i++) {
+        const name = names[i];
+        document.getElementById("listPokemon").innerHTML += `<div class="list-item" onclick="modal(${i})">${name}</div>`;
+    }
 }
 
 
@@ -152,13 +152,18 @@ function closeList() {
 }
 
 
-function modal() {
-// öffnet Modal mit großer Karte und Infos aus renderCardBig
+function modal(n) {
+    document.getElementById("modal").style.display = "flex";
+    renderCardBig(n);
 }
+
+function closeModal() { document.getElementById("modal").style.display = "none"; }
+
+
 
 
 function renderCardBig() {
-//erstellt große Karte Mit Infos wie Gewicht etc. evtl sogar bildlich dargestellt
+    //erstellt große Karte Mit Infos wie Gewicht etc. evtl sogar bildlich dargestellt
 }
 
 
@@ -191,7 +196,11 @@ function closeFavorites() {
 }
 
 
-
+window.onclick = function (event) {
+    if (event.target == document.getElementById("modal")) {
+        closeModal();
+    }
+}
 
 // maybe save the favorites to local storage
 
