@@ -85,7 +85,7 @@ function renderCardSmall() {
 
 
 function loadNext() {
-    document.getElementById('next20div').innerHTML='';
+    document.getElementById('next20div').innerHTML = '';
     renderCardSmall();
 }
 
@@ -96,14 +96,9 @@ function forLoopForRenderCardSmall() {
         htmlForRenderCardSmall(i, pokemonNumber);
         document.getElementById('like' + i).innerHTML = ` <img class="like" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
         for (let j = 0; j < favorites.length; j++) {
-            if (j == i) {
-                document.getElementById('like' + j).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavorites(${j})"></img>`;
-            }
+            if (j == i) { document.getElementById('like' + j).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavorites(${j})"></img>`; }
         }
-        if (i == max - 1 && max !== pokemonData.length) {
-            document.getElementById('next20div').innerHTML += `
-    <div class="next20" id ="loadnext${max}" onclick="loadNext()"> next 20 </div>`;
-        }
+        if (i == max - 1 && max !== pokemonData.length) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> next 20 </div>`; }
     }
 }
 
@@ -145,14 +140,42 @@ function showList() {
 }
 
 
-function showFavorites() {
-
-}
-
-
 function renderCardBig() {
 
 }
 
 
+function showFavorites() {
+    document.getElementById('cards').innerHTML = '';
+    document.getElementById('next20div').innerHTML ='';
+    document.getElementById('pokemonFavorite').setAttribute('onclick', 'closeFavorites()');
+    document.getElementById('pokemonFavorite').src = "./img/pokeball_open.png";
+    min = 0;
+    max = 20;
+    for (let i = 0; i < favorites.length; i++) {
+        let element = favorites[i];
+        let pokemonNumber = element + 1;
+        htmlForRenderCardSmall(element, pokemonNumber);
+        document.getElementById('like' + element).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavoritesWhileShown(${element})"></img>`;
+    }
+}
+
+
+function removeFromFavoritesWhileShown(element){
+    removeFromFavorites(element);
+    showFavorites();
+}
+function closeFavorites(){
+    document.getElementById('cards').innerHTML = '';
+    document.getElementById('pokemonFavorite').setAttribute('onclick', 'showFavorites()');
+    document.getElementById('pokemonFavorite').src = "./img/pokeball.png";
+    renderCardSmall();
+
+}
+
+
+
+
 // maybe save the favorites to local storage
+
+// maybe change width to max 5 cards an load only 15 cards
