@@ -107,7 +107,7 @@ function forLoopForRenderCardSmall() {
         htmlForRenderCardSmall(i, pokemonNumber);
         document.getElementById('like' + i).innerHTML = ` <img class="like" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
         for (let j = 0; j < favorites.length; j++) {
-            if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${j})"></img>`; }
+            if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`; }
         }
         if (i == max - 1 && max !== pokemonData.length) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> next 20 </div>`; }
     }
@@ -203,5 +203,3 @@ window.onclick = function (event) {
 }
 
 // maybe save the favorites to local storage
-
-// maybe change width to max 5 cards an load only 15 cards
