@@ -13,6 +13,7 @@ let max = 20;
 
 async function init() {
     await fillingArrays();
+        // Open Explanation Modal
     renderCardSmall();
     renderList();
 }
@@ -86,7 +87,7 @@ function renderCardSmall() {
 }
 
 
-function renderList(){//Suchfunktion noch integrieren
+function renderList(){//Suchfunktion noch integrieren   Pokeball hinzufügen und mit Favoriten verknüpfen
 for (let i = 0; i < names.length; i++) {
     const name = names[i];
     document.getElementById("listPokemon").innerHTML+=`<div class="list-item" onclick="modal(${i})">${name}</div>`;
@@ -104,9 +105,9 @@ function forLoopForRenderCardSmall() {
     for (let i = min; i < max; i++) {
         let pokemonNumber = i + 1;
         htmlForRenderCardSmall(i, pokemonNumber);
-        document.getElementById('like' + i).innerHTML = ` <img class="like" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
+        document.getElementById('like' + i).innerHTML = ` <img class="like" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
         for (let j = 0; j < favorites.length; j++) {
-            if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavorites(${j})"></img>`; }
+            if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${j})"></img>`; }
         }
         if (i == max - 1 && max !== pokemonData.length) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> next 20 </div>`; }
     }
@@ -129,14 +130,14 @@ function htmlForRenderCardSmall(i, pokemonNumber) {
 
 function addToFavorites(i) {
     favorites.push(i);
-    document.getElementById('like' + i).innerHTML = `<img class="like"  src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
+    document.getElementById('like' + i).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
 }
 
 
 function removeFromFavorites(i) {
     let position = favorites.indexOf(i);
     favorites.splice(position, 1);
-    document.getElementById('like' + i).innerHTML = `<img class="like"  src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
+    document.getElementById('like' + i).innerHTML = `<img class="like"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
 }
 
 
@@ -152,12 +153,12 @@ function closeList() {
 
 
 function modal() {
-
+// öffnet Modal mit großer Karte und Infos aus renderCardBig
 }
 
 
 function renderCardBig() {
-
+//erstellt große Karte Mit Infos wie Gewicht etc. evtl sogar bildlich dargestellt
 }
 
 

@@ -94,7 +94,7 @@ header {
 
 .favorite_pic {
     cursor: pointer;
-    padding-left: 4px;
+    padding-right: 4px;
     width: 84px;
     height: 84px;
 }
