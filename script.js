@@ -8,6 +8,8 @@ let urlWeights = [];
 let types = [];
 let stats = [];
 let abilityNames = [];
+let min = 0;
+let max = 20;
 
 async function init() {
     await fillingArrays();
@@ -75,7 +77,21 @@ function fillVar(singlePokemonData, singleTypes, abilityName, singleStats) {
 
 
 function renderCardSmall() {
-    for (let i = 0; i < pokemonData.length; i++) {
+    if (max > pokemonData.length) { max = pokemonData.length; };
+    forLoopForRenderCardSmall();
+    min += 20;
+    max += 20;
+}
+
+
+function loadNext() {
+    document.getElementById('loadnext' + min).classList.add('d-none');
+    renderCardSmall();
+}
+
+
+function forLoopForRenderCardSmall() {
+    for (let i = min; i < max; i++) {
         let pokemonNumber = i + 1;
         htmlForRenderCardSmall(i, pokemonNumber);
         document.getElementById('like' + i).innerHTML = ` <img class="like" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
@@ -83,6 +99,10 @@ function renderCardSmall() {
             if (j == i) {
                 document.getElementById('like' + j).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavorites(${j})"></img>`;
             }
+        }
+        if (i == max - 1 && max !== pokemonData.length) {
+            document.getElementById('cards').innerHTML += `
+    <div class="next20" id ="loadnext${max}" onclick="loadNext()"> next 20 </div>`;
         }
     }
 }

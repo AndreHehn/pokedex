@@ -18,6 +18,8 @@
     /* Legacy iOS */
 }
 
+.d-none{display:none;}
+
 body {
     font-family: 'Grape Nuts';
     margin: 0;
