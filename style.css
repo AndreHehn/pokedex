@@ -118,7 +118,8 @@ header {
 
 }
 
-main {
+main {margin-top: 4px;
+    height:100vh;
     max-width: 1474px;
 }
 
@@ -412,7 +413,7 @@ footer{position: sticky;
     left: 0;
     width: 100%;
     bottom: 0;
-    min-height: 56px;
+   height: 56px;
 background-color:rgb(170, 170, 170)!important ;}
 
 @keyframes rotation {

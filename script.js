@@ -185,7 +185,7 @@ function showFavorites() {
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'closeFavorites()');
     document.getElementById('pokemonFavorite').src = "./img/pokeball_open.png";
     min = 0;
-    max = 20;
+    max = 25;
     for (let i = 0; i < favorites.length; i++) {
         let element = favorites[i];
         let pokemonNumber = element + 1;
