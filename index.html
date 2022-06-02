@@ -13,12 +13,16 @@
 
 <body onload="init()">
     <header>
-        <img class="list_pic" onclick="showList()" src="./img/list.png">
+        <img class="list_pic" id="listpic" onclick="showList()" src="./img/list.png">
         <a href="#" class="headline_title">Pokedex</a>
         <img id="pokemonFavorite" onclick="showFavorites()" class="favorite_pic" src="./img/pokeball.png">
     </header>
     <main>
-       <div class ="loading-div" id="loading"><img class="loading"  src="./img/pokeball.png"></div>
+        <div id="mySidenav" class="sidenav">
+            <div class="list-pokemon" id="listPokemon"></div>
+        </div>
+
+        <div class="loading-div" id="loading"><img class="loading" src="./img/pokeball.png"></div>
         <div class="cards" id="cards">
         </div>
         <div class="div4button" id="next20div"></div>

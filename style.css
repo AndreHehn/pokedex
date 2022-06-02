@@ -18,6 +18,40 @@
     /* Legacy iOS */
 }
 
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.225s;
+    padding-top: 24px;
+    margin-top: 92px;
+}
+
+.list-pokemon{
+    height:85vh;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+    overflow-y: scroll;
+}
+.list-pokemon::-webkit-scrollbar {
+    display: none;
+  }
+ 
+
+.list-item {
+    font-size: 24px;
+    padding: 2px 64px;
+    cursor: pointer;
+    color: #818181;
+}
+
+.list-item:hover{color: white !important;}
+
 .d-none {
     display: none !important;
 }
@@ -139,7 +173,7 @@ header {
 .type {
     padding: 6px;
     border-radius: 4px;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .grass {
@@ -291,7 +325,7 @@ header {
     align-items: center;
     cursor: pointer;
     padding: 4px 12px;
-    font-size: 32px;
+    font-size: 30px;
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
     margin-top: 8px;
@@ -356,9 +390,12 @@ header {
         gap: 30px;
         height: 60px;
     }
+    .sidenav {
+        margin-top: 60px;
+    }
 
     .headline_title {
-        font-size: 38px;
+        font-size: 40px;
     }
 
     .favorite_pic {
