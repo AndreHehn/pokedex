@@ -21,7 +21,7 @@ async function init() {
 
 async function fillingArrays() {
     await getPokemonURL();
-    for (i = 0; i < pokemonData.length; i++) {
+    for (i = min; i < max; i++) {
         let singlePokemonData = pokemonData[i];
         let singleTypes = [];
         let singleStats = {
@@ -37,7 +37,7 @@ async function fillingArrays() {
 
 async function getPokemonURL() {
     await loadPokemonUrls();
-    for (let i = 0; i < urlsForPokemon['results'].length; i++) {
+    for (let i = min; i < max; i++) {
         let urlPokemon = await urlsForPokemon['results'][i]['url'];
         let responsePokemon = await fetch(urlPokemon);
         let responsePokemonAsJson = await responsePokemon.json();
@@ -79,23 +79,25 @@ function fillVar(singlePokemonData, singleTypes, abilityName, singleStats) {
 
 
 function renderCardSmall() {
-    if (max > pokemonData.length) { max = pokemonData.length; };
     forLoopForRenderCardSmall();
+    fillingArrays();
     min += 20;
     max += 20;
+    if (max > 150) { max = 150; };
     document.getElementById('loading').classList.add('d-none');
+
 }
 
 
 function renderList() {//Suchfunktion noch integrieren  
-    document.getElementById("listPokemon").innerHTML ='';
+    document.getElementById("listPokemon").innerHTML = '';
     for (let i = 0; i < names.length; i++) {
         const name = names[i];
         document.getElementById("listPokemon").innerHTML += `<div class="list-item" id="listItem${i}" onclick="modal(${i})">${name}</div>`;
         for (let j = 0; j < favorites.length; j++) {
             const favorite = favorites[j];
-            if( favorite == i){ 
-                document.getElementById("listItem"+i).innerHTML = ` ${name}<img class="list-pic" src="./img/pokeball.png">`; 
+            if (favorite == i) {
+                document.getElementById("listItem" + i).innerHTML = ` ${name}<img class="list-pic" src="./img/pokeball.png">`;
             }
         }
     }
@@ -116,7 +118,7 @@ function forLoopForRenderCardSmall() {
         for (let j = 0; j < favorites.length; j++) {
             if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`; }
         }
-        if (i == max - 1 && max !== pokemonData.length) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> next 20 </div>`; }
+        if (i == max - 1 && max !== 149) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> load more</div>`; }
     }
 }
 
@@ -155,6 +157,7 @@ function showList() {
     document.getElementById('listpic').setAttribute('onclick', 'closeList()');
 }
 
+
 function closeList() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById('listpic').setAttribute('onclick', 'showList()');
@@ -166,9 +169,10 @@ function modal(n) {
     renderCardBig(n);
 }
 
-function closeModal() { document.getElementById("modal").style.display = "none"; }
 
-
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
 
 
 function renderCardBig() {
@@ -196,6 +200,8 @@ function removeFromFavoritesWhileShown(element) {
     removeFromFavorites(element);
     showFavorites();
 }
+
+
 function closeFavorites() {
     document.getElementById('cards').innerHTML = '';
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'showFavorites()');
