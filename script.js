@@ -81,6 +81,7 @@ function renderCardSmall() {
     forLoopForRenderCardSmall();
     min += 20;
     max += 20;
+    document.getElementById('loading').classList.add('d-none');
 }
 
 
@@ -170,7 +171,6 @@ function closeFavorites(){
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'showFavorites()');
     document.getElementById('pokemonFavorite').src = "./img/pokeball.png";
     renderCardSmall();
-
 }
 
 

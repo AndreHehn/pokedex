@@ -19,7 +19,7 @@
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 body {
@@ -296,6 +296,29 @@ header {
     border-radius: 4px;
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.loading {
+    animation: rotation 8s infinite linear;
+    width: 100px;
+    height: 100px;
+}
+
+.loading-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
 }
 
 
