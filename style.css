@@ -45,12 +45,13 @@
 }
 
 
-.list-item {display: flex;
-    gap: 4px;
+.list-item {
+    width:100%;
     font-size: 24px;
-    padding: 2px 64px;
+    padding: 2px 0px 2px 0px;
     cursor: pointer;
     color: #818181;
+    margin-left: 36px;
 }
 
 .list-item:hover {
