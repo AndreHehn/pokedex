@@ -87,15 +87,15 @@ function renderCardSmall() {
 }
 
 
-function renderList() {//Suchfunktion noch integrieren   
-    document.getElementById("listPokemon").innerHTML ='';
+function renderList() {
+    document.getElementById("listPokemon").innerHTML = '';
     for (let i = 0; i < names.length; i++) {
         const name = names[i];
-        document.getElementById("listPokemon").innerHTML += `<tr class="list-item" id="listItem${i}" onclick="modal(${i})"><td>#${i}&nbsp;</td><td>${name}&nbsp; </td><td></td></tr>`;
+        document.getElementById("listPokemon").innerHTML += `<tr class="list-item" id="listItem${i}" onclick="modal(${i})"><td>#${i + 1}&nbsp;</td><td>${name}&nbsp; </td><td class="td3"></td></tr>`;
         for (let j = 0; j < favorites.length; j++) {
             const favorite = favorites[j];
-            if( favorite == i){ 
-                document.getElementById("listItem"+i).innerHTML = `<td>#${i}&nbsp;</td><td>${name}&nbsp;</td><td><img class="list-pic" src="./img/pokeball.png"></td>`; 
+            if (favorite == i) {
+                document.getElementById("listItem" + i).innerHTML = `<td>#${i + 1}&nbsp;</td><td>${name}&nbsp;</td><td class="td3"><img class="list-pic" src="./img/pokeball.png"></td>`;
             }
         }
     }
@@ -212,3 +212,25 @@ window.onclick = function (event) {
 }
 
 
+function search() {
+    let searchValue = document.getElementById('input').value;
+    searchValue = searchValue.toLowerCase();
+    document.getElementById("listPokemon").innerHTML = '';
+    forLoopForSearch(searchValue);
+}
+
+
+function forLoopForSearch(searchValue) {
+    for (let i = 0; i < names.length; i++) {
+        let name = names[i];
+        if (name.toLowerCase().includes(searchValue)) {
+            document.getElementById("listPokemon").innerHTML += `<tr class="list-item" id="listItem${i}" onclick="modal(${i})"><td>#${i + 1}&nbsp;</td><td>${name}&nbsp; </td><tdclass="td3"></td></tr>`;
+            for (let j = 0; j < favorites.length; j++) {
+                const favorite = favorites[j];
+                if (favorite == i) {
+                    document.getElementById("listItem" + i).innerHTML = `<td>#${i + 1}&nbsp;</td><td>${name}&nbsp;</td><td class="td3"><img class="list-pic" src="./img/pokeball.png"></td>`;
+                }
+            }
+        }
+    }
+}

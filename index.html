@@ -15,11 +15,11 @@
     <div id="modal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content" id ="modalContent">
-          <span  onclick ="closeModal()" class="close">&times;</span>
+        <div class="modal-content" id="modalContent">
+            <span onclick="closeModal()" class="close">&times;</span>
         </div>
-      
-      </div>
+
+    </div>
     <header>
         <img class="list_pic" id="listpic" onclick="showList()" src="./img/list.png">
         <a href="#" class="headline_title">Pokedex</a>
@@ -27,8 +27,14 @@
     </header>
     <main>
         <div id="mySidenav" class="sidenav">
-           <div class="list-pokemon"> <table  id="listPokemon">
-        </table></div></div>
+            <div class="searchbar">
+                <input class="input" id="input" onkeyup="search()" type="text" placeholder="name of the pokemon...">
+            </div>
+            <div class="list-pokemon">
+                <table id="listPokemon">
+                </table>
+            </div>
+        </div>
         <div class="loading-div" id="loading"><img class="loading" src="./img/pokeball.png"></div>
         <div class="cards" id="cards">
         </div>
