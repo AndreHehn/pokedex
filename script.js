@@ -155,10 +155,11 @@ function showList() {
     document.getElementById('listpic').setAttribute('onclick', 'closeList()');
 }
 
+
 function closeList() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById('listpic').setAttribute('onclick', 'showList()');
-    document.getElementById('input').value =``;
+    document.getElementById('input').value = ``;
     renderList();
 }
 
@@ -168,9 +169,10 @@ function modal(n) {
     renderCardBig(n);
 }
 
-function closeModal() { document.getElementById("modal").style.display = "none"; }
 
-
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
 
 
 function renderCardBig() {
@@ -181,7 +183,6 @@ function renderCardBig() {
 function showFavorites() {
     document.getElementById('cards').innerHTML = '';
     document.getElementById('next20div').innerHTML = '';
-    document.getElementById('headline').innerHTML = 'catched pokemons';
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'closeFavorites()');
     document.getElementById('pokemonFavorite').src = "./img/pokeball_open.png";
     min = 0;
@@ -199,6 +200,8 @@ function removeFromFavoritesWhileShown(element) {
     removeFromFavorites(element);
     showFavorites();
 }
+
+
 function closeFavorites() {
     document.getElementById('headline').innerHTML = 'pokedex';
     document.getElementById('cards').innerHTML = '';
@@ -206,13 +209,6 @@ function closeFavorites() {
     document.getElementById('pokemonFavorite').src = "./img/pokeball.png";
     document.getElementById('loading').classList.remove('d-none');
     renderCardSmall();
-}
-
-
-window.onclick = function (event) {
-    if (event.target == document.getElementById("modal")) {
-        closeModal();
-    }
 }
 
 
@@ -236,5 +232,12 @@ function forLoopForSearch(searchValue) {
                 }
             }
         }
+    }
+}
+
+
+window.onclick = function (event) {
+    if (event.target == document.getElementById("modal")) {
+        closeModal();
     }
 }

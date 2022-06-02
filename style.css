@@ -58,7 +58,9 @@
     color: white !important;
 }
 
-tr{height:34px;}
+tr {
+    height: 34px;
+}
 
 .td3 {
     min-width: 24px;
@@ -118,9 +120,10 @@ header {
 
 }
 
-main {margin-top: 4px;
-    height:100vh;
+main {
+    margin-top: 4px;
     max-width: 1474px;
+    padding-bottom: 62px;
 }
 
 .list_pic {
@@ -130,11 +133,17 @@ main {margin-top: 4px;
     height: 92px;
 }
 
+
+.header-pic-wrapper {
+    min-width: 90px;
+    max-width: 90px;
+}
+
 .favorite_pic {
     cursor: pointer;
     padding-right: 4px;
-    width: 84px;
-    height: 84px;
+    width: 80px;
+    height: 80px;
 }
 
 .cards {
@@ -409,12 +418,14 @@ main {margin-top: 4px;
 }
 
 
-footer{position: sticky;
+footer {
+    position: fixed;
     left: 0;
     width: 100%;
     bottom: 0;
-   height: 56px;
-background-color:rgb(170, 170, 170)!important ;}
+    height: 56px;
+    background-color: rgb(170, 170, 170) !important;
+}
 
 @keyframes rotation {
     from {
