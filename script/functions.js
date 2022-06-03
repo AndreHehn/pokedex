@@ -67,13 +67,14 @@ function showFavorites() {
     document.getElementById('next20div').innerHTML = '';
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'closeFavorites()');
     document.getElementById('pokemonFavorite').src = "./img/pokeball_open.png";
+    document.getElementById('pokemonFavorite').title = "show all pokemon";
     min = 0;
     max = 25;
     for (let i = 0; i < favorites.length; i++) {
         let element = favorites[i];
         let pokemonNumber = element + 1;
         htmlForRenderCardSmall(element, pokemonNumber);
-        document.getElementById('like' + element).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavoritesWhileShown(${element}, event)"></img>`;
+        document.getElementById('like' + element).innerHTML = `<img class="like" src="./img/pokeball.png" title ="release pokemon" onclick="removeFromFavoritesWhileShown(${element}, event)"></img>`;
     }
 }
 
@@ -91,6 +92,7 @@ function closeFavorites() {
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'showFavorites()');
     document.getElementById('pokemonFavorite').src = "./img/pokeball.png";
     document.getElementById('loading').classList.remove('d-none');
+    document.getElementById('pokemonFavorite').title = "show caught ones";
     renderCardSmall();
 }
 
