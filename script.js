@@ -178,50 +178,53 @@ function closeModal() {
 
 
 function renderCardBig(id) {
-document.getElementById('modalContent').innerHTML='';
-document.getElementById('modalContent').innerHTML=`
-<div class ="big-card card${types[id][0]}">
-    <div class="headline-big">
-        <div class="pokemon-number-big">#${id+1}</div>
-        <div id="likebig${id}"></div>
+    document.getElementById('modalContent').innerHTML = '';
+    htmlForRenderCardBig(id)
+    document.getElementById('likebig' + id).innerHTML = ` <img class="like-big" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavoritesBig(${id})">`;
+    document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">weight:</td><td class="td-right">${weights[id]}</td></tr>`;
+    forLoopsForRenderCardBig1(id);
+    forLoopsForRenderCardBig2(id);
+}
+
+
+function htmlForRenderCardBig(id){
+    document.getElementById('modalContent').innerHTML = `
+    <div class ="big-card card${types[id][0]}">
+        <div class="headline-big">
+            <div class="pokemon-number-big">#${id + 1}</div>
+            <div id="likebig${id}"></div>
+        </div>
+        <h2>${names[id]}</h2>
+        <img class= "big-pic" src ="${urlsArtwork[id]}">
+        <div id ="type-big${names[id]}" class="types-big"></div>
+        <table id ="tableBig"></table>
+        <span onclick="closeModal()" class="close">close</span>
     </div>
-    <h2>${names[id]}</h2>
-    <img class= "big-pic" src ="${urlsArtwork[id]}">
-    <div id ="type-big${names[id]}" class="types-big"></div>
-    <table id ="tableBig"></table>
-    <span onclick="closeModal()" class="close">close</span>
-</div>
-`;
-for (let j = 0; j < types[id].length; j++) {
-    document.getElementById('type-big' + names[id]).innerHTML += `<div class= "type-big ${types[id][j]}">${types[id][j]}</div>`;
-}
-document.getElementById('likebig' + id).innerHTML = ` <img class="like-big" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavoritesBig(${id})">`;
-        for (let j = 0; j < favorites.length; j++) {
-            if (favorites[j] == id) { document.getElementById('likebig' + id).innerHTML = `<img class="like-big" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavoritesBig(${id})"></img>`; }
-        }
-        document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">weight:</td><td class="td-right">${weights[id]}</td></tr>`;    
-for (let i = 0; i < stats[id]['name'].length; i++) {
-    let statName = stats[id]['name'][i];
-    let statNumber = stats[id]['baseStat'][i];
-    document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">${statName}:</td><td class="td-right">${statNumber}</td></tr>`;  
-}
-
-for (let i = 0; i < abilityNames[id].length; i++) {
-    let abilityName = abilityNames[id][i];
-    document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">ability #${i+1}:</td><td class="td-right" >${abilityName}</td></tr>`;  
+    `;
 }
 
 
-        
+function forLoopsForRenderCardBig1(id) {
+    for (let j = 0; j < types[id].length; j++) {
+        document.getElementById('type-big' + names[id]).innerHTML += `<div class= "type-big ${types[id][j]}">${types[id][j]}</div>`;
+    }
+    for (let j = 0; j < favorites.length; j++) {
+        if (favorites[j] == id) { document.getElementById('likebig' + id).innerHTML = `<img class="like-big" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavoritesBig(${id})"></img>`; }
+    }
 
-/*
+}
 
-abilityNames
 
-abilityName = [];
-*/
-
-  
+function forLoopsForRenderCardBig2(id){
+    for (let i = 0; i < stats[id]['name'].length; i++) {
+        let statName = stats[id]['name'][i];
+        let statNumber = stats[id]['baseStat'][i];
+        document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">${statName}:</td><td class="td-right">${statNumber}</td></tr>`;
+    }
+    for (let i = 0; i < 2; i++) {
+        let abilityName = abilityNames[id][i];
+        document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">ability #${i + 1}:</td><td class="td-right" >${abilityName}</td></tr>`;
+    }
 }
 
 
@@ -234,11 +237,10 @@ abilityName = [];
 
 
 
-
-function addToFavoritesBig(id){
+function addToFavoritesBig(id) {
     favorites.push(i);
     document.getElementById('like' + id).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${id}, event)">`;
-    document.getElementById('likebig' + id).innerHTML =`<img class="like-big" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavoritesBig(${id})">`;
+    document.getElementById('likebig' + id).innerHTML = `<img class="like-big" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavoritesBig(${id})">`;
     renderList();
 }
 
@@ -246,7 +248,7 @@ function removeFromFavoritesBig(id) {
     let position = favorites.indexOf(id);
     favorites.splice(position, 1);
     document.getElementById('like' + id).innerHTML = `<img class="like"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${id}, event)">`;
-    document.getElementById('likebig' + id).innerHTML =`<img class="like-big"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavoritesBig(${id})">`;
+    document.getElementById('likebig' + id).innerHTML = `<img class="like-big"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavoritesBig(${id})">`;
     renderList();
 }
 
@@ -269,7 +271,7 @@ function showFavorites() {
 function removeFromFavoritesWhileShown(element, event) {
     removeFromFavorites(element, event);
     showFavorites();
-    
+
 }
 
 
