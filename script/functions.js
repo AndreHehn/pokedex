@@ -64,7 +64,7 @@ function removeFromFavorites(i, event) {
 
 
 function addToFavoritesBig(id) {
-    favorites.push(i);
+    favorites.push(id);
     document.getElementById('like' + id).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${id}, event)">`;
     document.getElementById('likebig' + id).innerHTML = `<img class="like-big" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavoritesBig(${id})">`;
     renderList();
