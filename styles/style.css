@@ -345,6 +345,10 @@ footer {
     bottom: 0;
     height: 56px;
     background-color: rgb(170, 170, 170) !important;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
 }
 
 @keyframes rotation {
