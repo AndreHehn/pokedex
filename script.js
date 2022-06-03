@@ -68,7 +68,7 @@ function fillVar(singlePokemonData, singleTypes, abilityName, singleStats) {
         singleTypes.push(singlePokemonData['types'][i]['type']['name']);
     }
     for (let i = 0; i < singlePokemonData['stats'].length; i++) {
-        singleStats['name'].push(singlePokemonData['stats'][i]['name']);
+        singleStats['name'].push(singlePokemonData['stats'][i]['stat']['name']);
         singleStats['baseStat'].push(singlePokemonData['stats'][i]['base_stat']);
     }
     for (let i = 0; i < singlePokemonData['abilities'].length; i++) {
@@ -112,9 +112,9 @@ function forLoopForRenderCardSmall() {
     for (let i = min; i < max; i++) {
         let pokemonNumber = i + 1;
         htmlForRenderCardSmall(i, pokemonNumber);
-        document.getElementById('like' + i).innerHTML = ` <img class="like" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i}, event)"></img>`;
+        document.getElementById('like' + i).innerHTML = ` <img class="like" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i}, event)">`;
         for (let j = 0; j < favorites.length; j++) {
-            if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i}, event)"></img>`; }
+            if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i}, event)">`; }
         }
         if (i == max - 1 && max !== pokemonData.length) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> load more</div>`; }
     }
@@ -137,7 +137,7 @@ function htmlForRenderCardSmall(i, pokemonNumber) {
 
 function addToFavorites(i, event) {
     favorites.push(i);
-    document.getElementById('like' + i).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i}, event)"></img>`;
+    document.getElementById('like' + i).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i}, event)">`;
     renderList();
     event.stopPropagation();
 }
@@ -146,7 +146,7 @@ function addToFavorites(i, event) {
 function removeFromFavorites(i, event) {
     let position = favorites.indexOf(i);
     favorites.splice(position, 1);
-    document.getElementById('like' + i).innerHTML = `<img class="like"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i}, event)"></img>`;
+    document.getElementById('like' + i).innerHTML = `<img class="like"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i}, event)">`;
     renderList();
     event.stopPropagation();
 }
@@ -166,9 +166,9 @@ function closeList() {
 }
 
 
-function modal(n) {
+function modal(id) {
     document.getElementById("modal").style.display = "flex";
-    renderCardBig(n);
+    renderCardBig(id);
 }
 
 
@@ -177,10 +177,78 @@ function closeModal() {
 }
 
 
-function renderCardBig() {
-    //erstellt große Karte Mit Infos wie Gewicht etc. evtl sogar bildlich dargestellt
+function renderCardBig(id) {
+document.getElementById('modalContent').innerHTML='';
+document.getElementById('modalContent').innerHTML=`
+<div class ="big-card card${types[id][0]}">
+    <div class="headline-big">
+        <div class="pokemon-number-big">#${id+1}</div>
+        <div id="likebig${id}"></div>
+    </div>
+    <h2>${names[id]}</h2>
+    <img class= "big-pic" src ="${urlsArtwork[id]}">
+    <div id ="type-big${names[id]}" class="types-big"></div>
+    <table id ="tableBig"></table>
+    <span onclick="closeModal()" class="close">close</span>
+</div>
+`;
+for (let j = 0; j < types[id].length; j++) {
+    document.getElementById('type-big' + names[id]).innerHTML += `<div class= "type-big ${types[id][j]}">${types[id][j]}</div>`;
+}
+document.getElementById('likebig' + id).innerHTML = ` <img class="like-big" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavoritesBig(${id})">`;
+        for (let j = 0; j < favorites.length; j++) {
+            if (favorites[j] == id) { document.getElementById('likebig' + id).innerHTML = `<img class="like-big" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavoritesBig(${id})"></img>`; }
+        }
+        document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">weight:</td><td class="td-right">${weights[id]}</td></tr>`;    
+for (let i = 0; i < stats[id]['name'].length; i++) {
+    let statName = stats[id]['name'][i];
+    let statNumber = stats[id]['baseStat'][i];
+    document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">${statName}:</td><td class="td-right">${statNumber}</td></tr>`;  
 }
 
+for (let i = 0; i < abilityNames[id].length; i++) {
+    let abilityName = abilityNames[id][i];
+    document.getElementById('tableBig').innerHTML += `<tr class ="tr-big"><td class="td-left">ability #${i+1}:</td><td class="td-right" >${abilityName}</td></tr>`;  
+}
+
+
+        
+
+/*
+
+abilityNames
+
+abilityName = [];
+*/
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function addToFavoritesBig(id){
+    favorites.push(i);
+    document.getElementById('like' + id).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${id}, event)">`;
+    document.getElementById('likebig' + id).innerHTML =`<img class="like-big" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavoritesBig(${id})">`;
+    renderList();
+}
+
+function removeFromFavoritesBig(id) {
+    let position = favorites.indexOf(id);
+    favorites.splice(position, 1);
+    document.getElementById('like' + id).innerHTML = `<img class="like"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${id}, event)">`;
+    document.getElementById('likebig' + id).innerHTML =`<img class="like-big"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavoritesBig(${id})">`;
+    renderList();
+}
 
 function showFavorites() {
     document.getElementById('cards').innerHTML = '';
