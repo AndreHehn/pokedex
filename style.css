@@ -155,6 +155,7 @@ main {
 }
 
 .small-card {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -180,18 +181,12 @@ main {
     font-size: 30px;
 }
 
-.pokemon-number {
-    cursor: pointer;
-}
-
 .like {
-    cursor: pointer;
     height: 30px;
     width: 28px;
 }
 
 .small-card-wrapper {
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;

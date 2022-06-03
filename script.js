@@ -112,9 +112,9 @@ function forLoopForRenderCardSmall() {
     for (let i = min; i < max; i++) {
         let pokemonNumber = i + 1;
         htmlForRenderCardSmall(i, pokemonNumber);
-        document.getElementById('like' + i).innerHTML = ` <img class="like" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
+        document.getElementById('like' + i).innerHTML = ` <img class="like" title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i}, event)"></img>`;
         for (let j = 0; j < favorites.length; j++) {
-            if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`; }
+            if (favorites[j] == i) { document.getElementById('like' + favorites[j]).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i}, event)"></img>`; }
         }
         if (i == max - 1 && max !== pokemonData.length) { document.getElementById('next20div').innerHTML += `<div class="next20" id ="loadnext${max}" onclick="loadNext()"> load more</div>`; }
     }
@@ -123,9 +123,9 @@ function forLoopForRenderCardSmall() {
 
 function htmlForRenderCardSmall(i, pokemonNumber) {
     document.getElementById('cards').innerHTML += `
-    <div class="small-card card${types[i][0]}">
-    <div class="headline"><div class="pokemon-number" onclick="modal(${i})">#${pokemonNumber}</div><div id="like${i}"></div></div>
-    <div class="small-card-wrapper" onclick="modal(${i})">
+    <div class="small-card card${types[i][0]}" onclick="modal(${i})">
+    <div class="headline"><div class="pokemon-number">#${pokemonNumber}</div><div id="like${i}"></div></div>
+    <div class="small-card-wrapper" >
     <h2>${names[i]}</h2>
     <img class= "small-pic" src ="${urlsArtwork[i]}">
     <div id ="type${names[i]}" class="types"></div></div></div>`;
@@ -135,18 +135,20 @@ function htmlForRenderCardSmall(i, pokemonNumber) {
 }
 
 
-function addToFavorites(i) {
+function addToFavorites(i, event) {
     favorites.push(i);
-    document.getElementById('like' + i).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i})"></img>`;
+    document.getElementById('like' + i).innerHTML = `<img class="like" title="release the pokemon" src="./img/pokeball.png" onclick="removeFromFavorites(${i}, event)"></img>`;
     renderList();
+    event.stopPropagation();
 }
 
 
-function removeFromFavorites(i) {
+function removeFromFavorites(i, event) {
     let position = favorites.indexOf(i);
     favorites.splice(position, 1);
-    document.getElementById('like' + i).innerHTML = `<img class="like"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i})"></img>`;
+    document.getElementById('like' + i).innerHTML = `<img class="like"  title="catch the pokemon" src="./img/pokeball_open.png" onclick="addToFavorites(${i}, event)"></img>`;
     renderList();
+    event.stopPropagation();
 }
 
 
@@ -191,14 +193,15 @@ function showFavorites() {
         let element = favorites[i];
         let pokemonNumber = element + 1;
         htmlForRenderCardSmall(element, pokemonNumber);
-        document.getElementById('like' + element).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavoritesWhileShown(${element})"></img>`;
+        document.getElementById('like' + element).innerHTML = `<img class="like" src="./img/pokeball.png" onclick="removeFromFavoritesWhileShown(${element}, event)"></img>`;
     }
 }
 
 
-function removeFromFavoritesWhileShown(element) {
-    removeFromFavorites(element);
+function removeFromFavoritesWhileShown(element, event) {
+    removeFromFavorites(element, event);
     showFavorites();
+    
 }
 
 
