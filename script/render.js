@@ -1,3 +1,6 @@
+/*those functions mainly render the content for the page. */
+
+/*renders small card */
 function renderCardSmall() {
     if (max > pokemonData.length) { max = pokemonData.length; };
     forLoopForRenderCardSmall();
@@ -33,7 +36,7 @@ function htmlForRenderCardSmall(i, pokemonNumber) {
     }
 }
 
-
+/*renders list */
 function renderList() {
     document.getElementById("listPokemon").innerHTML = '';
     for (let i = 0; i < names.length; i++) {
@@ -48,7 +51,7 @@ function renderList() {
     }
 }
 
-
+/*renders big Cards */
 function renderCardBig(id) {
     document.getElementById('modalContent').innerHTML = '';
     htmlForRenderCardBig(id)

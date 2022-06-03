@@ -11,6 +11,14 @@ let abilityNames = [];
 let min = 0;
 let max = 25;
 
+
+/* This script loads data from API and pushes them into arrays 
+
+Because of just 150 pokemons, the whole arrays will be loaded at once.
+
+*/
+
+
 async function init() {
     await fillingArrays();
     renderCardSmall();
