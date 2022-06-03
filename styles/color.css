@@ -1,0 +1,136 @@
+.grass {
+    background-color: rgb(0, 151, 0)
+}
+
+.cardgrass {
+    border-color: rgb(0, 151, 0);
+}
+
+.water {
+    background-color: rgb(62, 139, 255);
+}
+
+.cardwater {
+    border-color: rgb(62, 139, 255);
+}
+
+.normal {
+    background-color: rgb(255, 231, 152);
+}
+
+.cardnormal {
+    border-color: rgb(255, 231, 152);
+}
+
+.electric {
+    background-color: rgb(255, 255, 0);
+}
+
+.cardelectric {
+    border-color: rgb(255, 255, 0);
+}
+
+.electric {
+    background-color: rgb(255, 255, 0);
+}
+
+.cardelectric {
+    border-color: rgb(255, 255, 0);
+}
+
+.fire {
+    background-color: rgb(255, 80, 49);
+}
+
+.cardfire {
+    border-color: rgb(255, 80, 49);
+}
+
+.bug {
+    background-color: rgb(68, 233, 255);
+}
+
+.cardbug {
+    border-color: rgb(68, 233, 255);
+}
+
+.poison {
+    background-color: rgb(223, 143, 255);
+}
+
+.cardpoison {
+    border-color: rgb(223, 143, 255);
+}
+
+.fighting {
+    background-color: rgb(255, 167, 167);
+}
+
+.cardfighting {
+    border-color: rgb(255, 167, 167);
+}
+
+.psychic {
+    background-color: rgb(255, 88, 227);
+}
+
+.cardpsychic {
+    border-color: rgb(255, 88, 227);
+}
+
+.rock {
+    background-color: rgb(226, 225, 215);
+}
+
+.cardrock {
+    border-color: rgb(226, 225, 215);
+}
+
+.ice {
+    background-color: rgb(0, 255, 255);
+}
+
+.cardice {
+    border-color: rgb(0, 255, 255);
+}
+
+.dragon {
+    background-color: rgb(164, 229, 255);
+}
+
+.carddragon {
+    border-color: rgb(164, 229, 255);
+}
+
+.ground {
+    background-color: rgb(130, 173, 95);
+}
+
+.cardground {
+    border-color: rgb(130, 173, 95);
+}
+
+.ghost {
+    background-color: rgb(179, 255, 249);
+}
+
+.cardghost {
+    border-color: rgb(179, 255, 249);
+}
+
+.fairy {
+    background-color: rgb(255, 110, 142);
+    ;
+}
+
+.cardfairy {
+    border-color: rgb(255, 110, 142);
+}
+
+.flying {
+    background-color: rgb(194, 255, 252);
+}
+
+.steel {
+    background-color: rgb(197, 218, 224);
+}

@@ -12,10 +12,9 @@
         /* Super Modern Browsers */
         url('./fonts/grape-nuts-v2-latin-regular.woff') format('woff'),
         /* Modern Browsers */
-        url('./fonts/grape-nuts-v2-latin-regular.ttf') format('truetype'),
+        url('./fonts/grape-nuts-v2-latin-regular.ttf') format('truetype');
         /* Safari, Android, iOS */
-        url('./fonts/grape-nuts-v2-latin-regular.svg#GrapeNuts') format('svg');
-    /* Legacy iOS */
+
 }
 
 .sidenav {
@@ -130,7 +129,6 @@ main {
     height: 92px;
 }
 
-
 .header-pic-wrapper {
     min-width: 90px;
     max-width: 90px;
@@ -191,7 +189,6 @@ main {
 }
 
 .small-card h2 {
-
     margin-top: -2px;
     margin-bottom: -2px;
     font-size: 36px;
@@ -213,143 +210,6 @@ main {
     padding: 6px;
     border-radius: 4px;
     font-size: 24px;
-}
-
-.grass {
-    background-color: rgb(0, 151, 0)
-}
-
-.cardgrass {
-    border-color: rgb(0, 151, 0);
-}
-
-.water {
-    background-color: rgb(62, 139, 255);
-}
-
-.cardwater {
-    border-color: rgb(62, 139, 255);
-}
-
-.normal {
-    background-color: rgb(255, 231, 152);
-}
-
-.cardnormal {
-    border-color: rgb(255, 231, 152);
-}
-
-.electric {
-    background-color: rgb(255, 255, 0);
-}
-
-.cardelectric {
-    border-color: rgb(255, 255, 0);
-}
-
-.electric {
-    background-color: rgb(255, 255, 0);
-}
-
-.cardelectric {
-    border-color: rgb(255, 255, 0);
-}
-
-.fire {
-    background-color: rgb(255, 80, 49);
-}
-
-.cardfire {
-    border-color: rgb(255, 80, 49);
-}
-
-.bug {
-    background-color: rgb(68, 233, 255);
-}
-
-.cardbug {
-    border-color: rgb(68, 233, 255);
-}
-
-.poison {
-    background-color: rgb(223, 143, 255);
-}
-
-.cardpoison {
-    border-color: rgb(223, 143, 255);
-}
-
-.fighting {
-    background-color: rgb(255, 167, 167);
-}
-
-.cardfighting {
-    border-color: rgb(255, 167, 167);
-}
-
-.psychic {
-    background-color: rgb(255, 88, 227);
-}
-
-.cardpsychic {
-    border-color: rgb(255, 88, 227);
-}
-
-.rock {
-    background-color: rgb(226, 225, 215);
-}
-
-.cardrock {
-    border-color: rgb(226, 225, 215);
-}
-
-.ice {
-    background-color: rgb(0, 255, 255);
-}
-
-.cardice {
-    border-color: rgb(0, 255, 255);
-}
-
-.dragon {
-    background-color: rgb(164, 229, 255);
-}
-
-.carddragon {
-    border-color: rgb(164, 229, 255);
-}
-
-.ground {
-    background-color: rgb(130, 173, 95);
-}
-
-.cardground {
-    border-color: rgb(130, 173, 95);
-}
-
-.ghost {
-    background-color: rgb(179, 255, 249);
-}
-
-.cardghost {
-    border-color: rgb(179, 255, 249);
-}
-
-.fairy {
-    background-color: rgb(255, 110, 142);
-    ;
-}
-
-.cardfairy {
-    border-color: rgb(255, 110, 142);
-}
-
-.flying {
-    background-color: rgb(194, 255, 252);
-}
-
-.steel {
-    background-color: rgb(197, 218, 224);
 }
 
 .div4button {
@@ -379,7 +239,6 @@ main {
     position: fixed;
     left: 0;
     top: 0;
-
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -464,7 +323,6 @@ main {
     border-radius: 4px;
 }
 
-
 .tr-big {
     height: 26px;
 }
@@ -512,151 +370,4 @@ footer {
     margin-top: 200px;
 }
 
-@media(max-width:1474px) {
-
-    header {
-        gap: 420px;
-    }
-}
-
-@media(max-width:1184px) {
-
-    header {
-        gap: 270px;
-    }
-}
-
-@media(max-width:894px) {
-
-    header {
-        gap: 120px;
-    }
-}
-
-@media(max-width:604px) {
-
-    header {
-        gap: 30px;
-        height: 60px;
-    }
-
-    .sidenav {
-        margin-top: 60px;
-    }
-
-    .headline_title {
-        font-size: 40px;
-    }
-
-    .favorite_pic {
-        width: 48px;
-        height: 48px;
-    }
-
-    .list_pic {
-        width: 52px;
-        height: 52px;
-    }
-}
-
-
-@media(max-width: 500px){
-    
-    .close {
-        margin-top: 6px;
-        font-size: 24px;
-    }
-    
-    .big-card {box-sizing: border-box;
-        width: 90%;
-        height: 100%;
-    }
-    
-    .big-card h2 {
-        margin-top: -24px;
-        font-size: 48px;
-    }
-    
-    .headline-big {
-        font-size: 36px;
-    }
-    
-    .like-big {
-        height: 36px;
-        width: 36px;
-    }
-    
-    .big-pic {
-        height: 280px;
-        width: 280px;
-        padding: 0px 40px;
-    }
-    
-    .types-big {
-        width: 80%;
-        justify-content: space-between;
-        margin-bottom: 16px;
-    }
-    
-    .type-big {
-        font-size: 18px;
-        padding: 6px;
-        border-radius: 4px;
-        margin-bottom:-8px;
-    }
-    
-    .tr-big {
-        height: 20px;
-        
-    }
-}
-
-@media(max-height: 700px){
-
-    .big-card h2 {
-        margin-top: -16px;
-        font-size: 32px;
-    }
-    
-    .big-pic {
-        height: 170px;
-        width: 170px;
-        margin-top: -36px;
-    }
-
-  
-    .headline-big {
-        font-size: 30px;
-    }
-    
-    .like-big {
-        height: 30px;
-        width: 30px;
-    }
-
-    
-    .type-big {
-        font-size: 18px;
-        padding: 4px;
-    }
-    
-    .tr-big {
-        height: 20px;
-    }
-    .close {
-        margin-top: 8px;
-        font-size: 24px;
-    }
-
-    .td-left {
-        padding-right: 2px;
-        font-size: 16px;
-    }
-    
-    .td-right {
-        text-align: right;
-    
-        font-size: 16px;
-    }
-}
 
