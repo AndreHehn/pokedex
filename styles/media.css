@@ -145,3 +145,19 @@
         font-size: 16px;
     }
 }
+
+@media(max-width: 280px) {
+
+    .favorite_pic {
+        box-sizing: border-box;
+       
+        padding: 0;
+        padding-right: 4px;
+    }
+.header-pic-wrapper{
+    min-width: 50px;
+    max-width:50px;
+}
+main{width:280px;}
+
+}
