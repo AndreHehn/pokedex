@@ -70,6 +70,7 @@ function addToFavoritesBig(id) {
     renderList();
 }
 
+
 function removeFromFavoritesBig(id) {
     let position = favorites.indexOf(id);
     favorites.splice(position, 1);
