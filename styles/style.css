@@ -379,7 +379,12 @@ footer::-webkit-scrollbar {
 
 .loading-div {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 200px;
+}
+.loading-div p{
+    color: white;
+    font-size: 24px;
 }
