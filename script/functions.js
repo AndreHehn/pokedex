@@ -88,8 +88,8 @@ function removeFromFavoritesWhileShown(element, event) {
 
 /*shows favorites or shows mainpage */
 function showFavorites() {
-    document.getElementById('cards').innerHTML ='';
-    document.getElementById('headline').innerHTML ='favorites';
+    document.getElementById('cards').innerHTML = '';
+    document.getElementById('headline').innerHTML = 'favorites';
     document.getElementById('next20div').innerHTML = '';
     document.getElementById('pokemonFavorite').setAttribute('onclick', 'closeFavorites()');
     document.getElementById('pokemonFavorite').src = "./img/pokeball_open.png";
@@ -117,13 +117,20 @@ function closeFavorites() {
 
 /*opens and closes the modal */
 function modal(id) {
-    document.getElementById("modal").style.display = "flex";
+    document.getElementById("modal").classList.add('modal');
+    document.getElementById("modal").classList.remove('d-none');
     renderCardBig(id);
 }
 
 
 function closeModal() {
-    document.getElementById("modal").style.display = "none";
+    document.getElementById('bigcard').classList.add('modal-closing');
+    setTimeout(() => {
+        document.getElementById('bigcard').classList.remove('modal-closing');
+        document.getElementById("modal").classList.remove('modal');
+        document.getElementById("modal").classList.add('d-none');
+    }, 220);
+
 }
 
 

@@ -149,6 +149,10 @@ main {
     justify-content: center;
 }
 
+.small-card:hover {
+    filter: brightness(90%);
+}
+
 .small-card {
     cursor: pointer;
     display: flex;
@@ -232,7 +236,7 @@ main {
 }
 
 .modal {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
@@ -252,6 +256,11 @@ main {
     align-items: center;
     margin: auto;
     width: fit-content;
+    animation: show-card-animation 225ms ease-in-out;
+}
+
+.modal-closing{
+    animation: close-card-animation 225ms ease-in-out;
 }
 
 .close {
@@ -360,16 +369,6 @@ footer {
 
 footer::-webkit-scrollbar {
     display: none;
-}
-
-@keyframes rotation {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(359deg);
-    }
 }
 
 .loading {

@@ -64,7 +64,7 @@ function renderCardBig(id) {
 
 function htmlForRenderCardBig(id){
     document.getElementById('modalContent').innerHTML = `
-    <div class ="big-card card${types[id][0]}">
+    <div class ="big-card card${types[id][0]}" id="bigcard">
         <div class="headline-big">
             <div class="pokemon-number-big">#${id + 1}</div>
             <div id="likebig${id}"></div>

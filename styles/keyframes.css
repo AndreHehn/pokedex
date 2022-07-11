@@ -1,0 +1,49 @@
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes show-card-animation {
+    0% {
+        transform: scale(0.5) rotate(180deg);
+    }
+
+    50% {
+        transform: scale(0.9) rotate(270deg);
+    }
+
+
+    75% {
+        transform: scale(1.1) rotate(315deg);
+    }
+
+
+    100% {
+        transform: scale(1.0) rotate(360deg);
+    }
+}
+
+@keyframes close-card-animation {
+    0% {
+        transform: scale(1.0) rotate(360deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(315deg);
+    }
+
+
+    75% {
+        transform: scale(0.9) rotate(270deg);
+    }
+
+
+    100% {
+        transform: scale(0.5) rotate(180deg);
+    }
+}
